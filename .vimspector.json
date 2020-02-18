@@ -1,0 +1,59 @@
+{
+  "adapters": {
+      "cppdbg": {
+        "name": "cppdbg",
+        "command": [ "$HOME/.vscode/extensions/ms-vscode.cpptools-0.26.3/debugAdapters/OpenDebugAD7" ],
+        "attach": {
+          "pidProperty": "processId",
+          "pidSelect": "ask"
+        }
+      },
+      "python": {
+        "name": "python",
+        "command": [
+          "node",
+          "$HOME/.vscode/extensions/ms-python.python-2020.2.63072/out/client/debugger/Main.js"
+        ]
+      },
+      "bashdb": {
+        "name": "bashdb",
+        "command": [
+          "node",
+          "$HOME/.vscode/extensions/rogalmic.bash-debug-0.2.0/out/bashDebug.js"
+        ]
+      }
+  },
+  "configurations": {
+    "test: Launch": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "name": "debug_cpp",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceRoot}/bin/pcap_analyze",
+        "args": [
+        ],
+        "cwd": "${workspaceRoot}/",
+        "externalConsole": true,
+        "stopAtEntry": true,
+        "logging": {
+          "engineLogging": false
+        }
+      }
+    },
+    "test_py: Launch": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "debug_python",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "python": "python3",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "${workspaceRoot}/ares/scripts/research/one_offs/lliu/big_trade_research.py"
+      }
+    }
+  }
+}
