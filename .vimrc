@@ -37,6 +37,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
+Plug 'wlemuel/vim-tldr'
 " Initialize plugin system
 call plug#end()
 "
@@ -178,6 +179,7 @@ let g:Lf_RootMarkers = ['.root']
 let g:Lf_DefaultExternalTool="find"
 
 let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf function %s", "")<CR><CR>
 noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
@@ -226,6 +228,7 @@ let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_linters = { 'sh' : ['shellcheck'] }
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
@@ -240,3 +243,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"
+" tldr
+"
+let g:tldr_directory_path = '~/.cache/tldr'
+let g:tldr_split_type = 'horizontal'
