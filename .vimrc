@@ -37,13 +37,25 @@ Plug 'dense-analysis/ale'
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
+
+" doc/manual
 Plug 'wlemuel/vim-tldr'
+Plug 'fs111/pydoc.vim'
+Plug 'ludwig/split-manpage.vim'
+" need to pip install cppman
+Plug 'gauteh/vim-cppman'
+" https://github.com/MichaelMure/mdr
+Plug 'skanehira/preview-markdown.vim'
+
 " Initialize plugin system
 call plug#end()
 "
 " General
 "
 let mapleader = ","
+set ts=4 sw=4
+set backspace=indent,eol,start
+set nu
 map <leader>vimrc :tabe ~/.vimrc<cr>
 autocmd bufwritepost .vimrc source $MYVIMRC
 set splitbelow
@@ -128,23 +140,23 @@ set statusline+=%{gutentags#statusline()}
 let g:gutentags_plus_switch = 1
 let g:gutentags_plus_nomap = 1
 " Find symbol (reference) under cursor
-noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <leader>gs :GscopeFind s <C-R><C-w><cr>
 " Find symbol definition under cursor
-noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <leader>gg :GscopeFind g <C-R><C-w><cr>
 " Functions called by this function
-noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <leader>gc :GscopeFind c <C-R><C-w><cr>
 " Functions calling this function
-noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <leader>gt :GscopeFind t <C-R><C-w><cr>
 " Find text string under cursor
-noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <leader>ge :GscopeFind e <C-R><C-w><cr>
 " Find egrep pattern under cursor
 noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
 " Find file name under cursor
 noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
 " Find files #including the file name under cursor
-noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <leader>gd :GscopeFind d <C-R><C-w><cr>
 " Find places where current symbol is assigned
-noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+noremap <silent> <leader>ga :GscopeFind a <C-R><C-w><cr>
 autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
@@ -249,3 +261,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "
 let g:tldr_directory_path = '~/.cache/tldr'
 let g:tldr_split_type = 'horizontal'
+
+"
+" markdown preview
+"
+let g:preview_markdown_vertical = 1
+let g:preview_markdown_auto_update = 1
