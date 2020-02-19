@@ -41,7 +41,7 @@ Plug 'vim-airline/vim-airline'
 " doc/manual
 Plug 'wlemuel/vim-tldr'
 Plug 'fs111/pydoc.vim'
-Plug 'ludwig/split-manpage.vim'
+Plug 'vim-utils/vim-man'
 " need to pip install cppman
 Plug 'gauteh/vim-cppman'
 " https://github.com/MichaelMure/mdr
@@ -267,3 +267,8 @@ let g:tldr_split_type = 'horizontal'
 "
 let g:preview_markdown_vertical = 1
 let g:preview_markdown_auto_update = 1
+
+"
+" Man
+"
+let g:ft_man_no_sect_fallback = 1
